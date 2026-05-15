@@ -37,5 +37,13 @@ link "wallust/templates/colors-waybar.css" "$HOME/.config/wallust/templates/colo
 link "wallust/templates/colors-hyprland.lua" "$HOME/.config/wallust/templates/colors-hyprland.lua"
 link "wallust/templates/colors-kitty.conf" "$HOME/.config/wallust/templates/colors-kitty.conf"
 
+# Scripts
+# Scripts do sistema
+sudo ln -sf "$HOME/dotfiles/scripts/modo-noturno-ativar.sh" /usr/local/bin/modo-noturno-ativar.sh
+echo "Linked: $HOME/dotfiles/scripts/modo-noturno-ativar.sh → /usr/local/bin/modo-noturno-ativar.sh"
+
+sudo ln -sf "$HOME/dotfiles/scripts/modo-noturno-desativar.sh" /usr/local/bin/modo-noturno-desativar.sh
+echo "Linked: $HOME/dotfiles/scripts/modo-noturno-desativar.sh → /usr/local/bin/modo-noturno-desativar.sh"
+
 echo ""
 echo "Dotfiles instalados com sucesso!"
