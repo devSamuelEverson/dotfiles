@@ -6,7 +6,7 @@
     // Posições dos Módulos
     "modules-left": ["hyprland/workspaces", "group/hardware", "hyprland/window"],
     "modules-center":["custom/archicon"],
-    "modules-right":["wireplumber", "network", "clock"],
+    "modules-right":["bluetooth", "backlight", "wireplumber", "battery", "network", "clock"],
 
     // Configurações dos Módulos
     "custom/archicon": {
@@ -62,10 +62,46 @@
             "on-click": "pavucontrol"
         },
 
+        "backlight": {
+            "device": "amdgpu_bl1",
+            "format": "{icon} {percent}%",
+            "format-icons": [" 󱩎 ", " 󱩏 ", " 󱩐 ", " 󱩑 ", " 󱩒 ", " 󱩓 ", " 󱩔 ", " 󱩕 ", " 󱩖 ", " 󰛨 "],
+            "tooltip": false
+        },
     // Configurações de Módulos de Informações do Sistema
     "custom/hardwareicon": {
         "format": "  ",
         "tooltip": false
+    },
+
+    "battery": {
+        "format": "{icon}{capacity}%",
+        "format-icons": {
+            "default": [" 󰁺 ", " 󰁻 ", " 󰁼 ", " 󰁽 ", " 󰁾 ", " 󰁿 ", " 󰂀 ", " 󰂁 ", " 󰂂 "],
+            "charging": [" 󰢜 ", " 󰂆 ", " 󰂇 ", " 󰂈 ", " 󰢝 ", " 󰂉 ", " 󰢞 ", " 󰂊 ", " 󰂋 "],
+            "plugged": [" 󱧥 "],
+            "full": [" 󰁹 "]
+        },
+        "full-at": 100,
+        "interval": 60,
+        "design-capacity": false,
+        "tooltip": true,
+        "tooltip-format": "Status: {timeTo}\nPower: {power}\nHealth: {health}",
+        "states": {
+            "attention": 50,
+            "warning": 30,
+            "critical": 15
+        }
+    },
+
+    "bluetooth": {
+        "format": " 󰂯 ",
+        "format-off": " 󰂲 ",
+        "format-connected": " 󰂰 ",
+        "tooltip-format": "{status}",
+        "tooltip-format-connected": "{status}\n{device_alias}",
+        "on-click": "~/.config/waybar/scripts/bluetooth-toggle.sh",
+        "on-click-right": "blueman-manager"
     },
 
     "cpu": {

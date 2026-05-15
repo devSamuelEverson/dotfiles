@@ -17,8 +17,11 @@ window#waybar {
 #workspaces,
 #hardware,
 #window,
-#custom-archicon, 
-#wireplumber,
+#custom-archicon,
+#bluetooth, 
+#backlight, 
+#wireplumber, 
+#battery, 
 #network, 
 #clock {
     background: alpha(@background, 0.8);
@@ -40,7 +43,10 @@ window#waybar {
 #hardware:hover,
 #window:hover,
 #custom-archicon:hover,
-#wireplumber:hover,
+#bluetooth:hover, 
+#backlight:hover, 
+#wireplumber:hover, 
+#battery:hover, 
 #network:hover, 
 #clock:hover {
     background: @color4;

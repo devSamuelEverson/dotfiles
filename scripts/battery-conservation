@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+CONSERVATION_MODE_PATH="/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode"
+
+if [[ ! -f "$CONSERVATION_MODE_PATH" ]]; then
+    echo "Erro: arquivo de conservation mode não encontrado." >&2
+    exit 1
+fi
+
+current=$(cat "$CONSERVATION_MODE_PATH")
+
+case "$1" in
+    on)
+        echo 1 | sudo tee "$CONSERVATION_MODE_PATH" > /dev/null
+        echo "Conservation mode ativado (limite ~60%)."
+        ;;
+    off)
+        echo 0 | sudo tee "$CONSERVATION_MODE_PATH" > /dev/null
+        echo "Conservation mode desativado (carrega até 100%)."
+        ;;
+    status)
+        [[ "$current" == "1" ]] && echo "Conservation mode: ATIVADO (~60%)" || echo "Conservation mode: DESATIVADO (100%)"
+        ;;
+    toggle)
+        if [[ "$current" == "1" ]]; then
+            echo 0 | sudo tee "$CONSERVATION_MODE_PATH" > /dev/null
+            echo "Conservation mode DESATIVADO (carrega até 100%)."
+        else
+            echo 1 | sudo tee "$CONSERVATION_MODE_PATH" > /dev/null
+            echo "Conservation mode ATIVADO (limite ~60%)."
+        fi
+        ;;
+    *)
+        echo "Uso: $(basename "$0") {on|off|toggle|status}"
+        exit 1
+        ;;
+esac

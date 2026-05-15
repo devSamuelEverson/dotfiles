@@ -17,10 +17,10 @@ local colors = require("colors")
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
-    output   = "HDMI-A-1",
-    mode     = "1920x1080@100",
+    output   = "eDP-1",
+    mode     = "1920x1200@60",
     position = "0x0",
-    scale    = "1",
+    scale    = "1.50",
 })
 
 
@@ -223,8 +223,8 @@ hl.config({
 
 hl.config({
     input = {
-        kb_layout  = "us",
-        kb_variant = "intl",
+        kb_layout  = "br",
+        kb_variant = "abnt2",
         kb_model   = "",
         kb_options = "",
         kb_rules   = "",
