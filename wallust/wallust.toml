@@ -1,0 +1,21 @@
+backend = "full"
+palette = "dark"
+color_space = "lab"
+check_contrast = true
+
+[templates]
+
+waybar = { 
+    template = "colors-waybar.css",
+    target = "~/.config/waybar/colors.css"
+}
+
+hyprland = {
+    template = "hyprland.lua",
+    target = "~/.config/hypr/colors.lua"
+}
+
+kitty = {
+    template = "kitty.conf",
+    target = "~/.config/kitty/colors.conf"
+}

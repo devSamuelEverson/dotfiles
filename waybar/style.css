@@ -1,0 +1,81 @@
+@import url("/home/Azure/.config/waybar/colors.css");
+
+* {
+    /*Global*/
+    font-family: "DepartureMono Nerd Font";
+    font-size: 13px;
+
+    border: none;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+/*Módulos*/
+#workspaces,
+#hardware,
+#window,
+#custom-archicon, 
+#wireplumber,
+#network, 
+#clock {
+    background: alpha(@background, 0.8);
+    color: @foreground;
+
+    margin: 6px 4px;
+    padding: 0 14px;
+
+    border-radius: 14px;
+
+    box-shadow: 0 0 10px alpha(@color0, 0.3);
+
+    transition: all 0.3s ease-out;
+
+}
+
+/*Hovers*/
+#workspaces:hover,
+#hardware:hover,
+#window:hover,
+#custom-archicon:hover,
+#wireplumber:hover,
+#network:hover, 
+#clock:hover {
+    background: @color4;
+    color: @background;
+}
+
+/*Tooltips*/
+tooltip {
+    background: alpha(@background, 0.95);
+    border-radius: 12px;
+    border: 2px solid @color4;
+}
+
+tooltip label {
+    color: @foreground;
+}
+
+/*Workspaces*/
+#workspaces button {
+    background: transparent;
+    color: @foreground;
+
+    padding: 0 8px;
+    margin: 4px;
+
+    border-radius: 10px;
+}
+
+#workspaces button.active {
+    background: @color4;
+    color: @background;
+}
+
+#workspaces button:hover {
+    outline: none;
+    box-shadow: none;
+}
+
