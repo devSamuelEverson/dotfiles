@@ -5,14 +5,11 @@ DOTFILES_DIR="$HOME/dotfiles"
 link() {
   local src="$DOTFILES_DIR/$1"
   local dst="$2"
-
   mkdir -p "$(dirname "$dst")"
-
   if [ -e "$dst" ] && [ ! -L "$dst" ]; then
     echo "Backup: $dst → $dst.bak"
     mv "$dst" "$dst.bak"
   fi
-
   ln -sf "$src" "$dst"
   echo "Linked: $src → $dst"
 }
@@ -30,20 +27,20 @@ link "kitty/colors.conf" "$HOME/.config/kitty/colors.conf"
 link "waybar/config.jsonc" "$HOME/.config/waybar/config.jsonc"
 link "waybar/style.css" "$HOME/.config/waybar/style.css"
 link "waybar/colors.css" "$HOME/.config/waybar/colors.css"
+link "waybar/scripts/bluetooth-toggle.sh" "$HOME/.config/waybar/scripts/bluetooth-toggle.sh"
 
 # Wallust
 link "wallust/wallust.toml" "$HOME/.config/wallust/wallust.toml"
 link "wallust/templates/colors-waybar.css" "$HOME/.config/wallust/templates/colors-waybar.css"
-link "wallust/templates/colors-hyprland.lua" "$HOME/.config/wallust/templates/colors-hyprland.lua"
-link "wallust/templates/colors-kitty.conf" "$HOME/.config/wallust/templates/colors-kitty.conf"
+link "wallust/templates/hyprland.lua" "$HOME/.config/wallust/templates/hyprland.lua"
+link "wallust/templates/kitty.conf" "$HOME/.config/wallust/templates/kitty.conf"
 
-# Scripts
 # Scripts do sistema
-sudo ln -sf "$HOME/dotfiles/scripts/modo-noturno-ativar.sh" /usr/local/bin/modo-noturno-ativar.sh
-echo "Linked: $HOME/dotfiles/scripts/modo-noturno-ativar.sh → /usr/local/bin/modo-noturno-ativar.sh"
+sudo ln -sf "$HOME/dotfiles/scripts/battery-conservation" /usr/local/bin/battery-conservation
+echo "Linked: $HOME/dotfiles/scripts/battery-conservation → /usr/local/bin/battery-conservation"
 
-sudo ln -sf "$HOME/dotfiles/scripts/modo-noturno-desativar.sh" /usr/local/bin/modo-noturno-desativar.sh
-echo "Linked: $HOME/dotfiles/scripts/modo-noturno-desativar.sh → /usr/local/bin/modo-noturno-desativar.sh"
+sudo ln -sf "$HOME/dotfiles/scripts/i8042-reset.sh" /usr/lib/systemd/system-sleep/i8042-reset.sh
+echo "Linked: $HOME/dotfiles/scripts/i8042-reset.sh → /usr/lib/systemd/system-sleep/i8042-reset.sh"
 
 echo ""
 echo "Dotfiles instalados com sucesso!"
